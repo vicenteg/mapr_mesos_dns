@@ -1,0 +1,10 @@
+{
+  "zk": "zk://{% for host in groups['zookeeper'] %}{{hostvars[host]['ansible_default_ipv4']['address']}}:{{zookeeper_port|default(5181)}}{% if not loop.last %},{% endif %}{% endfor %}/mesos",
+     "refreshSeconds": 5,
+     "ttl": 60,
+     "domain": "mesos",
+     "port": 53,
+     "listener": "{{ansible_default_ipv4.address}}",
+     "resolvers": {{mesos_dns_resolvers}},
+     "timeout": 5
+}
