@@ -1,5 +1,6 @@
 ---
 # handlers file for vicenteg.mapr_mesos_dns
 - name: restart mesos-dns
-  sudo_user: '{{mapr_admin_username}}'
+  become: yes
+  become_user: '{{mapr_admin_username}}'
   command: maprcli node services -action restart -name mesos-dns -filter csvc==mesos-dns
