@@ -11,9 +11,8 @@
   become: yes
   become_user: root
   template: src=config-dns.json.j2 dest=/opt/mapr/mesos-services/mesos-services-{{myriad_version}}/conf/config-dns.json owner=root group=root mode=0644
-  notify: restart mesos-dns
 
 - name: let warden spin up multiple mesos-dns
   become: yes
-  become_user: '{{mapr_admin_username}}'
+  become_user: root
   lineinfile: dest=/opt/mapr/mesos-services/mesos-services-{{myriad_version}}/conf/warden.mesos-dns.conf regexp='services=mesos-dns' line="services=mesos-dns:all:mesos-master" state=present

@@ -1,6 +1,2 @@
 ---
 # handlers file for vicenteg.mapr_mesos_dns
-- name: restart mesos-dns
-  become: yes
-  become_user: '{{mapr_admin_username}}'
-  command: maprcli node services -action restart -name mesos-dns -nodes {{ansible_fqdn}}
