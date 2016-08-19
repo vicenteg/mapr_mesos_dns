@@ -3,4 +3,4 @@
 - name: restart mesos-dns
   become: yes
   become_user: '{{mapr_admin_username}}'
-  command: maprcli node services -action restart -name mesos-dns -filter csvc==mesos-dns
+  command: maprcli node services -action restart -name mesos-dns -nodes {{ansible_fqdn}}
