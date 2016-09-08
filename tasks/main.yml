@@ -5,7 +5,6 @@
   become: yes
   become_user: root
   yum: name=mapr-mesos-dns state=present
-  environment: '{{proxy_env}}'
 
 - name: install mapr-mesos-dns configuration file
   become: yes
