@@ -15,3 +15,5 @@
   become: yes
   become_user: root
   lineinfile: dest=/opt/mapr/mesos-services/mesos-services-{{myriad_version}}/conf/warden.mesos-dns.conf regexp='services=mesos-dns' line="services=mesos-dns:all:mesos-master" state=present
+  notify: reload warden
+

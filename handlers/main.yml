@@ -1,2 +1,7 @@
 ---
 # handlers file for vicenteg.mapr_mesos_dns
+
+- name: reload warden
+  become: yes
+  become_user: root
+  service: name=mapr-warden state=reloaded
